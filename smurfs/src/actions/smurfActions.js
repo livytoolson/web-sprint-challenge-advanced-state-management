@@ -10,6 +10,7 @@ export const POST_SMURFS_FAILURE = "POST_SMURFS_FAILURE";
 export const fetchSmurfs = () => {
     return (dispatch) => {
         dispatch({ type: FETCH_SMURFS_START });
+        // dispatch({ type: FETCH_START })
 
         axios
             .get('http://localhost:3333/smurfs')
@@ -17,7 +18,7 @@ export const fetchSmurfs = () => {
                 dispatch({ type: FETCH_SMURFS_SUCCESS, payload: res.data})
             })
             .catch((err) => {
-                dispatch({ type: FETCH_SMURFS_FAILURE, payload: err })
+                dispatch({ type: FETCH_SMURFS_FAILURE, payload: err.response })
             })
     };
 };

@@ -42,7 +42,7 @@ export const smurfReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                smurfData: [...state.smurfData, action.payload],
+                smurfData: action.payload,
                 error: ''
             }
         case POST_SMURFS_FAILURE:

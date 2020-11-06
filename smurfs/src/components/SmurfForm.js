@@ -8,8 +8,8 @@ import './App';
 const initialFormValues = {
     name: '',
     age: '',
-    height: '',
-    id: Date.now()
+    height: ''
+    // id: Date.now()
 }
 
 const SmurfForm = (props) => {
@@ -17,15 +17,20 @@ const SmurfForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // props.postSmurf(newSmurf);
+        props.postSmurf(newSmurf);
+        resetForm();
     }
 
     const handleChangle = (e) => {
         setNewSmurf({...newSmurf, [e.target.name]: e.target.value})
     }
 
-    const handleAdd = () => {
-        props.postSmurf(newSmurf);
+    const resetForm = () => {
+        setNewSmurf({
+            name: '',
+            age: '',
+            height: ''
+        });
     }
 
     return (
@@ -51,7 +56,7 @@ const SmurfForm = (props) => {
             onChange={handleChangle}
             />
         </form>
-        <button onClick={handleAdd}>Add Smurf</button>
+        <button onClick={handleSubmit}>Add Smurf</button>
         </div>
     );
 };
