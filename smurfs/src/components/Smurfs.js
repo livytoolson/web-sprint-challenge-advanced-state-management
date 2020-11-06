@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { fetchSmurfs } from '../actions/smurfActions';
 
+import SmurfCard from './SmurfCard';
+
 const Smurfs = (props) => {
 
     useEffect(() => {
@@ -10,7 +12,15 @@ const Smurfs = (props) => {
     }, [])
 
     return (
-        <div>Smurfs Component</div>
+        <div>
+            {props.isLoading ? <p>Loading smurfs ...</p> : null}
+            {props.error ? <p style={{ color: "red " }}>{props.error}</p> : null}
+            <div>
+                {props.smurfData.map((smurf) => (
+                    <SmurfCard smurfData={smurf}/>
+                ))}
+            </div>
+        </div>
     )
 };
 
