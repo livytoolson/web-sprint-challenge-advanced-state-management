@@ -36,5 +36,11 @@ export const postSmurfs = (newSmurf) => {
                 // console.log(err)
                 // dispatch({ type: POST_SMURFS_FAILURE, payload: err.response })
             })
-    }
-}
+    };
+};
+
+// export const addSmurf = () => {
+//     return(dispatch) => {
+//         dispatch({ type: })
+//     }
+// }
