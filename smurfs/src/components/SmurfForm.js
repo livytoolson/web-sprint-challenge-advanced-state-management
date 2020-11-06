@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { postSmurf } from '../actions/smurfActions';
 
+import './App';
+
 const initialFormValues = {
     name: '',
     age: '',
@@ -29,20 +31,20 @@ const SmurfForm = (props) => {
     return (
         <div>
             <h3>Grow your smurf village!</h3>
-            <form onSubmit={handleSubmit}>
-            <input
+            <form className="smurf-form" onSubmit={handleSubmit}>
+            <input className = "input"
             name = 'name'
             placeholder = 'Smurf Name'
             type = 'text'
             onChange={handleChangle}
             />
-            <input 
+            <input className = "input"
             name = 'age'
             placeholder = 'Age'
             type = 'text'
             onChange={handleChangle}
             />
-            <input 
+            <input className = "input"
             name = 'height'
             placeholder ='Height'
             type = 'text'

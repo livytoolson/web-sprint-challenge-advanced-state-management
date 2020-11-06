@@ -5,6 +5,8 @@ import { fetchSmurfs } from '../actions/smurfActions';
 
 import SmurfCard from './SmurfCard';
 
+import './App.css';
+
 const Smurfs = (props) => {
 
     useEffect(() => {
@@ -15,7 +17,7 @@ const Smurfs = (props) => {
         <div>
             {props.isLoading ? <p>Loading smurfs ...</p> : null}
             {props.error ? <p style={{ color: "red " }}>{props.error}</p> : null}
-            <div>
+            <div className="smurfs-list">
                 {props.smurfData.map((smurf) => (
                     <SmurfCard smurfData={smurf}/>
                 ))}
