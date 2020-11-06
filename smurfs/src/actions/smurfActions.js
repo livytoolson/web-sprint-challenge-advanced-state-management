@@ -29,11 +29,9 @@ export const postSmurf = (newSmurf) => {
         axios
             .post('http://localhost:3333/smurfs', newSmurf)
             .then((res) => {
-                // console.log(res)
                 dispatch({ type: POST_SMURFS_SUCCESS, payload: res.data })
             })
             .catch((err) => {
-                // console.log(err)
                 dispatch({ type: POST_SMURFS_FAILURE, payload: err.response })
             })
     };

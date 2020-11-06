@@ -15,11 +15,15 @@ const SmurfForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.postSmurf(newSmurf);
+        // props.postSmurf(newSmurf);
     }
 
     const handleChangle = (e) => {
         setNewSmurf({...newSmurf, [e.target.name]: e.target.value})
+    }
+
+    const handleAdd = () => {
+        props.postSmurf(newSmurf);
     }
 
     return (
@@ -45,7 +49,7 @@ const SmurfForm = (props) => {
             onChange={handleChangle}
             />
         </form>
-        <button onClick={handleSubmit}>Add Smurf</button>
+        <button onClick={handleAdd}>Add Smurf</button>
         </div>
     );
 };
