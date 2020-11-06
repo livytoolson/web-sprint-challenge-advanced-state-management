@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
+import { postSmurf } from '../actions/smurfActions';
+
 const initialFormValues = {
     name: '',
     age: '',
@@ -8,20 +10,21 @@ const initialFormValues = {
     id: Date.now()
 }
 
-const SmurfForm = (props, initialFormValues) => {
+const SmurfForm = (props) => {
     const [newSmurf, setNewSmurf] = useState(initialFormValues);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        props.postSmurf(newSmurf);
     }
 
-    const handleChangle = () => {
-        setNewSmurf(...newSmurf, )
+    const handleChangle = (e) => {
+        setNewSmurf({...newSmurf, [e.target.name]: e.target.value})
     }
 
     return (
         <div>
-            <h3>Make a Smurf!</h3>
+            <h3>Grow your smurf village!</h3>
             <form onSubmit={handleSubmit}>
             <input
             name = 'name'
@@ -32,7 +35,7 @@ const SmurfForm = (props, initialFormValues) => {
             <input 
             name = 'age'
             placeholder = 'Age'
-            type = 'number'
+            type = 'text'
             onChange={handleChangle}
             />
             <input 
@@ -42,9 +45,9 @@ const SmurfForm = (props, initialFormValues) => {
             onChange={handleChangle}
             />
         </form>
-        <button>Add Smurf</button>
+        <button onClick={handleSubmit}>Add Smurf</button>
         </div>
     );
 };
 
-export default connect(null, {})(SmurfForm);
+export default connect(null, {postSmurf})(SmurfForm);

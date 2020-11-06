@@ -22,7 +22,7 @@ export const fetchSmurfs = () => {
     };
 };
 
-export const postSmurfs = (newSmurf) => {
+export const postSmurf = (newSmurf) => {
     return(dispatch) => {
         dispatch({ type: POST_SMURFS_START });
 
@@ -30,17 +30,11 @@ export const postSmurfs = (newSmurf) => {
             .post('http://localhost:3333/smurfs', newSmurf)
             .then((res) => {
                 // console.log(res)
-                // dispatch({ type: POST_SMURFS_SUCCESS, payload: res.data })
+                dispatch({ type: POST_SMURFS_SUCCESS, payload: res.data })
             })
             .catch((err) => {
                 // console.log(err)
-                // dispatch({ type: POST_SMURFS_FAILURE, payload: err.response })
+                dispatch({ type: POST_SMURFS_FAILURE, payload: err.response })
             })
     };
 };
-
-// export const addSmurf = () => {
-//     return(dispatch) => {
-//         dispatch({ type: })
-//     }
-// }
